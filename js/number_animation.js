@@ -4,7 +4,7 @@ var text_field = document.getElementById("user-counter-animation");
 
 
 
-let api = "http://jetzyapi.herokuapp.com/TotalUserCount"; //Beware of Cors Error due to running on localhost.
+let api = "https://jetzyapi.herokuapp.com/TotalUserCount"; //Beware of Cors Error due to running on localhost.
 
 fetch(api)
   .then(response =>{
