@@ -1,7 +1,7 @@
 input_field = document.getElementById("new-users"); 
 console.log("bye")
 
-api = "http://jetzyapi.herokuapp.com/NewUsers/1"; //Beware of Cors Error due to running on localhost.
+api = "https://jetzyapi.herokuapp.com/NewUsers/1"; //Beware of Cors Error due to running on localhost.
 // Moesif CORS Chrome extension can fix this error, however, will have to see what this is like when API is hosted elsewhere. 
 
 fetch(api)
