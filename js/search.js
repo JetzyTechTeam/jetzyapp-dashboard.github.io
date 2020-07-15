@@ -1,4 +1,4 @@
-var api = "http://jetzyapi.herokuapp.com"
+var api = "https://jetzyapi.herokuapp.com"
 function getData(){
     var api = "http://jetzyapi.herokuapp.com"
     params = false; 
