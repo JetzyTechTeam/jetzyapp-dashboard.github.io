@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/xYnLU5VasunUfVDeHchzC9_hpzQzet0B-f8_EDSrhBnJbp2wgXcyvhaw1uTuXMnrLZ0"/>
+    <title>Jetzy Dashboard</title>
+    <style>
+    table{
+      background-color: #ffb405;
+      white-space:nowrap
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">Jetzy Dashboard</a>
+        <div class="header-right">
+          <a class="active" href="index.html">Home</a>
+          <a href="newusercount.html">New Users</a>
+          <a href="countries.html">Demographics</a>
+          <a href="userinterest.html">User Interests</a>
+          <a href="usersession.html">User Activity</a>
+          
+          <a href="age_groups.html">Age Groups</a>
+          <a href="total_users.html">Total Users</a>
+          <a href="gender.html">Gender</a>
+          <a href="search.html">Search</a>
+
+
+        </div>
+    </div>
+    <br>
+    <style>
+      body {
+        background-color: #31b8c2;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <div id = "tablee" style = "float: left; ">
+      <div id = "scroll">
+      <table class = "table table-bordered, table-striped center" id = "user_session_table">
+        <tr>
+          <th style="text-align:center">Age</th>
+          <th style="text-align:center">Count</th>
+        </tr>
+      </table>
+    </div>
+      <br>
+      <div class="col text-center">
+        <button onClick = "exportTableToCSV()" class="btn btn-primary">Download as CSV</button>
+      </div> 
+    </div>
+
+    <div class = "container" style = "float: left;">
+        <canvas id = "chart"></canvas>
+    </div>
+
+    <br>
+    <br>
+
+
+<br>
+
+    <script src ="js/age_groups.js"></script>
+
+</body>

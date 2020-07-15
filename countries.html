@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/xYnLU5VasunUfVDeHchzC9_hpzQzet0B-f8_EDSrhBnJbp2wgXcyvhaw1uTuXMnrLZ0"/>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        body{background-color: #81d4fa;}
+        table{
+          background-color: #81faa8;
+        }
+    </style>
+    <title>Jetzy Dashboard</title>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="logo">Jetzy Dashboard</a>
+        <div class="header-right">
+          <a class="active" href="index.html">Home</a>
+          <a href="newusercount.html">New Users</a>
+          <a href="countries.html">Demographics</a>
+          <a href="userinterest.html">User Interests</a>
+          <a href="usersession.html">User Activity</a>
+          
+          <a href="age_groups.html">Age Groups</a>
+          <a href="total_users.html">Total Users</a>
+          <a href="gender.html">Gender</a>
+          <a href="search.html">Search</a>
+
+
+
+    </div>
+</div>
+      </div>
+      <br>
+      <br>
+      <style>
+        body {
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      </style>
+      <div id = "tableAndButton" style = "float: left; ">
+        <div id = "scroll" style = "overflow-y: scroll;">
+        <table class = "table table-bordered, table-striped" id = "country_count_table">
+          <tr>
+            <th style="text-align:center">Country </th>
+            <th style="text-align:center">Count </th>
+          </tr>
+        </table>
+      </div>
+        <br>
+      <div class="col text-center">
+        <button onClick = "exportTableToCSV()" class="btn btn-primary">Download as CSV</button>
+      </div> 
+      </div>
+      <div id="regions_div" class = "center" style="width: 900px; height: 550px; float: left; "></div>
+      <br>
+      <br>
+
+      <br>
+  
+    <script src ="js/country_geochart.js"></script>
+
+</body>
