@@ -1,4 +1,4 @@
-let api = "http://jetzyapi.herokuapp.com/UserSession"; //Beware of Cors Error due to running on localhost.
+let api = "https://jetzyapi.herokuapp.com/UserSession"; //Beware of Cors Error due to running on localhost.
 fetch(api)
   .then(response =>{
     return response.json();
