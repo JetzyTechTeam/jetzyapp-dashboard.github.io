@@ -21,7 +21,7 @@ go()
 function go(){
     var start_date_milliseconds = new Date(document.getElementById("start").value).getTime(); 
     var end_date_milliseconds = new Date(document.getElementById("end").value).getTime(); 
-    let api = "http://jetzyapi.herokuapp.com/UserRange/"+start_date_milliseconds+"/"+end_date_milliseconds; //Beware of Cors Error due to running on localhost.
+    let api = "https://jetzyapi.herokuapp.com/UserRange/"+start_date_milliseconds+"/"+end_date_milliseconds; //Beware of Cors Error due to running on localhost.
     console.log(api); 
     fetch(api)
     .then(response =>{
