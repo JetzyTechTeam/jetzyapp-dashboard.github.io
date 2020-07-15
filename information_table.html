@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/xYnLU5VasunUfVDeHchzC9_hpzQzet0B-f8_EDSrhBnJbp2wgXcyvhaw1uTuXMnrLZ0"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Jetzy Dashboard</title>
+    <script src = "js/search.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="logo">Jetzy Dashboard</a>
+        <div class="header-right">
+          <a class="active" href="index.html">Home</a>
+          <a href="newusercount.html">New Users</a>
+          <a href="countries.html">Demographics</a>
+          <a href="userinterest.html">User Interests</a>
+          <a href="usersession.html">User Activity</a>
+          
+          <a href="age_groups.html">Age Groups</a>
+          <a href="total_users.html">Total Users</a>
+          <a href="gender.html">Gender</a>
+          <a href="search.html">Search</a>
+
+
+    </div>
+</div>
+<br>
+<div class="col text-center">
+    <button onClick = "downloadCSV()" class="btn btn-warning" id = "downloadButton">Loading</button>
+  </div>
+  <h6 id = "decision"></h6>   
+</div>
+
+<div id = "tablee" style ="float: center;">
+    <div id ="scroll" style = "overflow-y: scroll;">
+    <table class = "table table-bordered, table-striped center" id = "info_table" style = "width: max-content;">
+    <!--- <tr>
+        <th style="text-align:center">Date</th>
+        <th style="text-align:center">Count</th>
+      </tr> -->
+    </table>
+    </div>   
+    <br>
+
+    <script>
+        if(localStorage.getItem("login")=="true"){
+            console.log("AUTHORIZED"); 
+        fetch(localStorage.getItem("api_key"))
+            .then(response =>{
+                return response.json();
+            })
+
+            .then(data => {
+                let fname = [];
+                let lname = [];
+                let email = [];
+                for(i =0; i<data["People"].length; i++){
+                fname.push(data["People"][i][0]);
+                lname.push(data["People"][i][1]);
+                email.push(data["People"][i][2]); 
+                }
+                var csv_data = [["First Name", "Last Name", "Email"]]; 
+                for(var i =0; i<fname.length; i++){
+                    csv_data.push([fname[i], lname[i], email[i]]); 
+                }
+                let csvContent = "data:text/csv;charset=utf-8," 
+                     + csv_data.map(e => e.join(",")).join("\n");
+                localStorage["csv_content"] = csvContent; 
+                console.log("DOWNLOAD NOW"); 
+                document.getElementById("downloadButton").setAttribute("class", "btn btn-success"); 
+                document.getElementById("downloadButton").innerText = "Download"; 
+                //Create Table Now
+                let table = document.getElementById("info_table"); 
+                var header =      ` <tr>
+                <th style="text-align:center">First Name</th>
+                <th style="text-align:center">Last Name</th>
+                <th style="text-align:center">Email</th>
+                    </tr>`
+                table.innerHTML+= header; 
+                var min = 500; 
+                if(data["People"].length<min){
+                    min = data["People"].length; 
+                    document.getElementById("decision").innerHTML = `<br><h6 class = 'col text-center'> Showing ${fname.length} results </h6>`; 
+                }
+                else{
+                    document.getElementById("decision").innerHTML = `<br><h6 class = 'col text-center'> Showing first 500 out of ${fname.length} results </h6>`; 
+                }
+                for(var i =0; i<min; i++){
+                /*note the backtick*/ 
+                var row = ` <tr>
+                    <td>${fname[i]}</td>
+                    <td>${lname[i]}</td>
+                    <td>${email[i]}</td>
+                </tr>`
+                table.innerHTML+= row; 
+                }
+            })
+        }
+        else{
+            console.log("NOT AUTHORIZED"); 
+            document.getElementById("decision").innerHTML = `<br><h6 class = 'col text-center'> Not Authorized </h6>`; 
+
+        }
+            
+        
+     
+    </script>
+<script src = "js/checker.js"></script>
+    
+
+</body>

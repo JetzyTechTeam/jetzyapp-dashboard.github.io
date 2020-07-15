@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/xYnLU5VasunUfVDeHchzC9_hpzQzet0B-f8_EDSrhBnJbp2wgXcyvhaw1uTuXMnrLZ0"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Jetzy Dashboard</title>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="logo">Jetzy Dashboard</a>
+        <div class="header-right">
+          <a class="active" href="index.html">Home</a>
+          <a href="newusercount.html">New Users</a>
+          <a href="countries.html">Demographics</a>
+          <a href="userinterest.html">User Interests</a>
+          <a href="usersession.html">User Activity</a>
+          
+          <a href="age_groups.html">Age Groups</a>
+          <a href="total_users.html">Total Users</a>
+          <a href="gender.html">Gender</a>
+          <a href="search.html">Search</a>
+
+
+
+    </div>
+</div>
+<style>
+  body {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
+      <br>
+      <form id = "org"></form>
+        <select name="timeperiod" id="timeperiod" onchange="refreshAPI()">
+          <option value="1">Weekly</option>
+          <option value="2">Monthly</option>
+          <option value="3">Yearly</option>
+          <option value="0">All Time</option>
+        </select>
+      </form>
+
+      <br>
+
+      <div id = "tablee" style ="float: left;">
+        <div id ="scroll" style = "overflow-y: scroll;">
+        <table class = "table table-bordered, table-striped center" id = "user_count_table" style = "width: max-content;">
+        <!--- <tr>
+            <th style="text-align:center">Date</th>
+            <th style="text-align:center">Count</th>
+          </tr> -->
+        </table>
+        </div>   
+        <br>
+    
+    
+        <div class="col text-center">
+          <button onClick = "exportTableToCSV()" class="btn btn-primary">Download as CSV</button>
+        </div>    
+      </div>
+      
+  
+      <div class = "container" style = "float: left; ">
+        <canvas id = "chart"></canvas>
+    </div>
+
+    <br>
+
+
+    <br>
+    <br>
+    <script src ="js/dataviz.js"></script>
+
+
+</body>
