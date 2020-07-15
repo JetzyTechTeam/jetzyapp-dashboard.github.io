@@ -2,7 +2,7 @@
 console.log("Country");
 //https://developers.google.com/chart/interactive/docs/gallery/geochart?authuser=1
 
-let api = "http://jetzyapi.herokuapp.com/Countries"; //Beware of Cors Error due to running on localhost.
+let api = "https://jetzyapi.herokuapp.com/Countries"; //Beware of Cors Error due to running on localhost.
 // Moesif CORS Chrome extension can fix this error, however, will have to see what this is like when API is hosted elsewhere. 
 
 fetch(api)
