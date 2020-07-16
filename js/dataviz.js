@@ -25,7 +25,7 @@ fetch(api)
 function refreshAPI(){
   var test = document.getElementById("timeperiod");
   var value= test.options[test.selectedIndex].value;
-  let api = "http://localhost:5000/NewUsers/"+value; //Beware of Cors Error due to running on localhost.
+  let api = "https://jetzyapi.herokuapp.com/NewUsers/"+value; //Beware of Cors Error due to running on localhost.
   fetch(api)
   .then(response =>{
     return response.json();
