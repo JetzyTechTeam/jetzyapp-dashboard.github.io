@@ -2,7 +2,7 @@ var test = document.getElementById("timeperiod");
 var value= test.options[test.selectedIndex].value;
 console.log(value); 
 
-let api = "https://jetzyapi.herokuapp.com/NewUsers/"+value; //Beware of Cors Error due to running on localhost.
+let api = "https://jetzyapi.herokuapp.com/liveNewUsers/"+value; //Beware of Cors Error due to running on localhost.
 console.log(api); 
 // Moesif CORS Chrome extension can fix this error, however, will have to see what this is like when API is hosted elsewhere. 
 
@@ -25,7 +25,7 @@ fetch(api)
 function refreshAPI(){
   var test = document.getElementById("timeperiod");
   var value= test.options[test.selectedIndex].value;
-  let api = "https://jetzyapi.herokuapp.com/NewUsers/"+value; //Beware of Cors Error due to running on localhost.
+  let api = "https://jetzyapi.herokuapp.com/liveNewUsers/"+value; //Beware of Cors Error due to running on localhost.
   fetch(api)
   .then(response =>{
     return response.json();
