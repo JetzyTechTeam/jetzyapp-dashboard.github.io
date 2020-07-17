@@ -1,3 +1,5 @@
+var ctx = document.getElementById("chart");
+var myChart; 
 var test = document.getElementById("timeperiod");
 var value= test.options[test.selectedIndex].value;
 console.log(value); 
@@ -23,9 +25,11 @@ fetch(api)
 })
 
 function refreshAPI(){
+  myChart.destroy(); 
   var test = document.getElementById("timeperiod");
   var value= test.options[test.selectedIndex].value;
   let api = "https://jetzyapi.herokuapp.com/liveNewUsers/"+value; //Beware of Cors Error due to running on localhost.
+  var ctx = document.getElementById("chart");
   fetch(api)
   .then(response =>{
     return response.json();
@@ -68,7 +72,7 @@ function createTable(data){
 }
 function createGraph(x_list, y_list){
   var ctx = document.getElementById("chart");
-  var myChart = new Chart(ctx, {
+  myChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: x_list,

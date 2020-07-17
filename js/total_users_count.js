@@ -1,3 +1,6 @@
+var ctx = document.getElementById("chart");
+var myChart; 
+var chartMade = false; 
 var start_date = document.getElementById("start"); 
 var end_date = document.getElementById("end"); 
 
@@ -19,6 +22,9 @@ go()
 //Call API
 
 function go(){
+    if(chartMade){
+      myChart.destroy(); 
+    }
     var start_date_milliseconds = new Date(document.getElementById("start").value).getTime(); 
     var end_date_milliseconds = new Date(document.getElementById("end").value).getTime(); 
     let api = "https://jetzyapi.herokuapp.com/UserRange/"+start_date_milliseconds+"/"+end_date_milliseconds; //Beware of Cors Error due to running on localhost.
@@ -42,10 +48,11 @@ function go(){
       table.deleteRow(0);
     }
     createTable(data); 
+    chartMade = true; 
 })
 function createGraph(x_list, y_list){
-    var ctx = document.getElementById("chart");
-    var myChart = new Chart(ctx, {
+    ctx = document.getElementById("chart");
+    myChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: x_list,
@@ -59,6 +66,10 @@ function createGraph(x_list, y_list){
       ]
     }
   });
+    if(chartMade){
+      document.getElementById("scroll").style.height = document.getElementById("chart").style.height; 
+
+    }
   }
   function createTable(data){
     console.log(data.length); 
@@ -79,7 +90,6 @@ function createGraph(x_list, y_list){
     }
   }
   document.getElementById("scroll").style.height = document.getElementById("chart").style.height; 
-
 }
 function downloadCSV(csv, filename){
   var csvFile; 
