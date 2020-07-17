@@ -28,7 +28,7 @@ fetch(api)
             text_field.innerText = target;
         }
     };
-    loadingText.innerText = " Users and Counting"
+    loadingText.innerText = " Users and Counting!"
     updateCount();
     // text_field.innerHTML = number+" Users and Counting!"
 })
