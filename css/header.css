@@ -82,3 +82,32 @@ h3 {
   margin: auto;
   width: 50%;
 }
+
+.fl-l
+{
+    float:left;
+    word-break: break-all;
+    width: 32%;
+}
+
+#wrap{
+    width:auto;
+    border:0px solid;
+    display:block;
+  
+}
+#one {
+  color: white;
+}
+
+#two {
+ margin-left: 11px;
+ margin-right: 11px;
+ color: white;
+
+}
+
+#three {
+  color: white;
+
+}
