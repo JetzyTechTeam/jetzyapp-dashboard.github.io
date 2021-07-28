@@ -1,5 +1,7 @@
 function check()
   {
+    <?php
+  sessionstart()
     if(document.getElementById("username").value=="JetzyApp" && document.getElementById("password").value=="JetzyApp@2020")
     {
         localStorage.setItem("login", true);
@@ -12,4 +14,6 @@ function check()
 
       alert("Invalid Credentials")
     }
+    sessionclose()
+    ?>
   }
